@@ -19,5 +19,5 @@ This project aims to motivate the people to learn about computer science through
 </ul>
 <hr>
 <h1> Additional things to be added </h1>
-<b> Raise Question : </b> and experts will answer your queries.<br>
+<b> Raise a question : </b> and experts will answer your queries.<br>
 <b> Bug Finder points : </b> Gain popularity(points) by finding bugs in articles.<br> 
