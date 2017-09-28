@@ -17,9 +17,6 @@
         </activity>
         <activity android:name=".login" />
         <activity android:name=".signup" />
-        <activity android:name=".fragments.home_fragment" />
-        <activity android:name=".fragments.profile_fragment" />
-        <activity android:name=".fragments.articles_fragment"></activity>
     </application>
 
 </manifest>
