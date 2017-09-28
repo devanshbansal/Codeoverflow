@@ -15,11 +15,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".login" />
-        <activity android:name=".signup" />
+        <activity android:name=".login_activity" />
+        <activity android:name=".signup_activity" />
         <activity android:name=".fragments.profile_fragment" />
         <activity android:name=".fragments.home_fragment" />
-        <activity android:name=".fragments.article_fragment"></activity>
+        <activity android:name=".fragments.article_fragment" />
+        <activity android:name=".home_activity"></activity>
     </application>
 
 </manifest>
