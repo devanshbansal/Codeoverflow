@@ -1,7 +1,7 @@
 # Codeoverflow [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
 <h2>Overview </h2>
 This project aims to motivate the people to learn about computer science through the content rich articles written by the experts.
-<h2> Major Role : </h2>
+<h2> Major Roles : </h2>
 <ul>
   <li> Readers : Just SignIn and start reading popular articles and articles of your interest. </li>
   <li> Content Writers : If you are an expert and want to contribute articles on some specific topics, you can sign up and add your articles. </li>
