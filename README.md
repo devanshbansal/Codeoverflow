@@ -1,4 +1,4 @@
-# Codeoverflow [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
+# Codeoverflow [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)[![Beta-version](http://i.investopedia.com/dimages/graphics/beta03.png)]
 <h2>Overview </h2>
 This project aims to motivate the people to learn about computer science through the content rich articles written by the experts.
 <h2> Major Roles : </h2>
