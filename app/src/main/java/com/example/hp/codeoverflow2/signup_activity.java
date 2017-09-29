@@ -15,7 +15,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class signup_activity extends AppCompatActivity {
     Button b1;
-    private EditText eid, password, confpassword;
+    private EditText eid, password, confpassword, name;
     private DatabaseReference mDatabase;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +24,7 @@ public class signup_activity extends AppCompatActivity {
         eid = (EditText)findViewById(R.id.editText);
         password = (EditText)findViewById(R.id.editText2);
         confpassword = (EditText)findViewById(R.id.editText3);
+        name = (EditText)findViewById(R.id.editText4);
         mDatabase = FirebaseDatabase.getInstance().getReference();
         b1= (Button) findViewById(R.id.button);
         b1.setOnClickListener(new View.OnClickListener() {
@@ -37,8 +38,12 @@ public class signup_activity extends AppCompatActivity {
             }
         });
     }
+
     class SignUpdata{
         public String eid = "", passw = "";
+        public SignUpdata(){
+            //just for reference
+        }
         SignUpdata(String eid, String passw){
             this.eid = eid;
             this.passw = passw;
@@ -51,8 +56,7 @@ public class signup_activity extends AppCompatActivity {
                 return;
             }
             SignUpdata sud = new SignUpdata(eid.getText().toString(), password.getText().toString());
-            DatabaseReference dref = mDatabase.child("");
-            dref.setValue(sud);
+            mDatabase.child("users").child(name.getText().toString()).setValue(sud);
             Toast.makeText(getApplicationContext(), "Account created Successfully !", Toast.LENGTH_SHORT).show();
         }catch(Exception e){
             Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
