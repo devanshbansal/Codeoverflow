@@ -66,9 +66,9 @@ public class login_activity extends AppCompatActivity {
                     if (pass!=null&&pass.equals(password.getText().toString())) {
                         Toast.makeText(getApplicationContext(), "Login Successfull", Toast.LENGTH_SHORT).show();
                       Intent i= new Intent(getApplicationContext(),home_activity.class);
-
-                        startActivity(i);
                         finish();
+                        startActivity(i);
+
                     }
 
                     else
