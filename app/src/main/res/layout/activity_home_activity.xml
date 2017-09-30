@@ -6,6 +6,6 @@
     android:layout_height="match_parent"
     tools:context="com.example.hp.codeoverflow2.home_activity">
 
-    
+
 
 </RelativeLayout>

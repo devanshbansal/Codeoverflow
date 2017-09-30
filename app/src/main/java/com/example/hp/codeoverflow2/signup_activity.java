@@ -39,24 +39,17 @@ public class signup_activity extends AppCompatActivity {
         });
     }
 
-    class SignUpdata{
-        public String eid = "", passw = "";
-        public SignUpdata(){
-            //just for reference
-        }
-        SignUpdata(String eid, String passw){
-            this.eid = eid;
-            this.passw = passw;
-        }
-    }
+
+
     public void insertData(){
         try{
             if(!password.getText().toString().equals(confpassword.getText().toString())){
                 Toast.makeText(getApplicationContext(), "Enter same password in confirm password", Toast.LENGTH_LONG).show();
                 return;
             }
-            SignUpdata sud = new SignUpdata(eid.getText().toString(), password.getText().toString());
-            mDatabase.child("users").child(name.getText().toString()).setValue(sud);
+
+            mDatabase.child("users").child(name.getText().toString()).child("eid").setValue(eid.getText().toString());
+            mDatabase.child("users").child(name.getText().toString()).child("passw").setValue(password.getText().toString());
             Toast.makeText(getApplicationContext(), "Account created Successfully !", Toast.LENGTH_SHORT).show();
         }catch(Exception e){
             Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();

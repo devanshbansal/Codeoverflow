@@ -29,87 +29,50 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class login_activity extends AppCompatActivity {
-    Button b1;
-    private EditText phone, password;
+    Button login;
+    private EditText number, password;
     private DatabaseReference mDatabase;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        phone = (EditText)findViewById(R.id.editText);
+        number = (EditText)findViewById(R.id.editText);
         password = (EditText)findViewById(R.id.editText2);
         mDatabase = FirebaseDatabase.getInstance().getReference();
-        b1= (Button) findViewById(R.id.button);
-        b1.setOnClickListener(new View.OnClickListener() {
+        login= (Button) findViewById(R.id.button);
+        login.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View v) {
 
              validate_login();
-             Toast.makeText(login_activity.this, "Me " + password.getText().toString(), Toast.LENGTH_SHORT).show();
-             boolean ok = false;
-             if(password.getText().toString().equals("1")){
-                 password.setText("1234567891011212123445");
-                 ok = true;
-             }
 
-             if(ok)
-             {
-                 Intent i=new Intent(getApplicationContext(),home_activity.class);
-                 startActivity(i);
-             }
-             else
-                 Toast.makeText(getApplicationContext(),"Login Failed",Toast.LENGTH_SHORT).show();
          }
         });
 
     }
 
 
-    public static class getdata{
-        public String eid = "", passw = "";
-        public getdata(){
-            //just for reference
-        }
-        getdata(String eid, String passw){
-            this.eid = eid;
-            this.passw = passw;
-        }
-    }
 
     void validate_login()
     {
         try{
-            mDatabase.child("users").child(phone.getText().toString()).addChildEventListener(new ChildEventListener() {
+            mDatabase.child("users").child(number.getText().toString()).child("passw").addValueEventListener(new ValueEventListener() {
                 @Override
-                public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-//                    getdata gd = dataSnapshot.child("users").getValue(new getdata(eid.getText().toString(), password.getText().toString()));
-//                    Toast.makeText(login_activity.this, gd.eid + " " + gd.passw, Toast.LENGTH_SHORT).show();
-//                    System.out.println(gd.eid + " " + gd.passw);
-                    if(dataSnapshot.getKey().equals("passw")){
-                        int res = (dataSnapshot.getValue().toString().compareTo(password.getText().toString()));
-                        if(res == 0){
-                            password.setText("1");
-                        }
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    String pass = dataSnapshot.getValue(String.class);
+                    if (pass.equals(password.getText().toString())) {
+                        Toast.makeText(getApplicationContext(), "Login Successfull", Toast.LENGTH_SHORT).show();
+                      Intent i= new Intent(getApplicationContext(),home_activity.class);
+                        startActivity(i);
+
                     }
+
+                    else
+                        Toast.makeText(getApplicationContext(),"Login Failed",Toast.LENGTH_SHORT).show();
                 }
-
-                @Override
-                public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-                }
-
-                @Override
-                public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-                }
-
-                @Override
-                public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-                }
-
                 @Override
                 public void onCancelled(DatabaseError databaseError) {
 
