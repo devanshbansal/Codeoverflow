@@ -56,6 +56,7 @@ public class article_fragment extends Fragment implements AdapterView.OnItemClic
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 
+
     }
 
 

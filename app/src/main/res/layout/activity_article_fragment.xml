@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ListView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lv_article"
     android:layout_width="match_parent"
+    android:background="#FFFDFD"
+    android:layout_marginTop="30dp"
+    android:layout_marginBottom="30dp"
+    android:paddingBottom="10dp"
+    android:divider="@null"
+    android:paddingTop="10dp"
     android:layout_height="match_parent"
-    tools:context="com.example.hp.codeoverflow2.fragments.article_fragment">
-
-</android.support.constraint.ConstraintLayout>
+    android:elevation="20dp"/>

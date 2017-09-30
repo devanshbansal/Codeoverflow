@@ -19,13 +19,13 @@ public class main_adapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-             return new article_fragment();
+             return new home_fragment();
             case 1:
                 return new article_fragment();
             case 2:
                 return new article_fragment();
         }
-        return new article_fragment();
+        return new home_fragment();
     }
 
     @Override
