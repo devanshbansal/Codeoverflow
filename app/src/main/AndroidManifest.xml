@@ -20,7 +20,8 @@
         <activity android:name=".fragments.profile_fragment" />
         <activity android:name=".fragments.home_fragment" />
         <activity android:name=".fragments.article_fragment" />
-        <activity android:name=".home_activity"></activity>
+        <activity android:name=".home_activity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

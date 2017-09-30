@@ -63,11 +63,12 @@ public class login_activity extends AppCompatActivity {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     String pass = dataSnapshot.getValue(String.class);
-                    if (pass.equals(password.getText().toString())) {
+                    if (pass!=null&&pass.equals(password.getText().toString())) {
                         Toast.makeText(getApplicationContext(), "Login Successfull", Toast.LENGTH_SHORT).show();
                       Intent i= new Intent(getApplicationContext(),home_activity.class);
-                        startActivity(i);
 
+                        startActivity(i);
+                        finish();
                     }
 
                     else

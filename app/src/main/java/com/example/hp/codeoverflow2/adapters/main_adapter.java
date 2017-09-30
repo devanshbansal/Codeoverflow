@@ -4,10 +4,11 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.example.hp.codeoverflow2.fragments.article_fragment;
 import com.example.hp.codeoverflow2.fragments.home_fragment;
 
 public class main_adapter extends FragmentPagerAdapter {
-    private static final String[] TITLES = {"SURVEY", "PROFILE", "SYNC"};
+    private static final String[] TITLES = {"Home", "My Articles", "Profile"};
 
     public main_adapter(FragmentManager fm) {
         super(fm);
@@ -18,13 +19,13 @@ public class main_adapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-
+             return new article_fragment();
             case 1:
-
+                return new article_fragment();
             case 2:
-
+                return new article_fragment();
         }
-        return null;
+        return new article_fragment();
     }
 
     @Override

@@ -51,6 +51,7 @@ public class signup_activity extends AppCompatActivity {
             mDatabase.child("users").child(name.getText().toString()).child("eid").setValue(eid.getText().toString());
             mDatabase.child("users").child(name.getText().toString()).child("passw").setValue(password.getText().toString());
             Toast.makeText(getApplicationContext(), "Account created Successfully !", Toast.LENGTH_SHORT).show();
+            finish();
         }catch(Exception e){
             Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
         }
