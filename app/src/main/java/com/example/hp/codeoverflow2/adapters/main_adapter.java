@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import com.example.hp.codeoverflow2.fragments.article_fragment;
 import com.example.hp.codeoverflow2.fragments.home_fragment;
+import com.example.hp.codeoverflow2.fragments.profile_fragment;
 
 public class main_adapter extends FragmentPagerAdapter {
     private static final String[] TITLES = {"Home", "My Articles", "Profile"};
@@ -23,7 +24,7 @@ public class main_adapter extends FragmentPagerAdapter {
             case 1:
                 return new article_fragment();
             case 2:
-                return new article_fragment();
+                return new profile_fragment();
         }
         return new home_fragment();
     }
