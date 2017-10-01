@@ -1,5 +1,6 @@
 package com.example.hp.codeoverflow2.fragments;
 
+import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +14,7 @@ import android.widget.ListView;
 
 import com.example.hp.codeoverflow2.R;
 import com.example.hp.codeoverflow2.adapters.home_adapter;
+import com.example.hp.codeoverflow2.article_activity;
 import com.example.hp.codeoverflow2.model.Articlelist;
 
 public class home_fragment extends Fragment implements AdapterView.OnItemClickListener {
@@ -54,6 +56,9 @@ listView.setAdapter(surveyListAdapter);
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+        Intent i= new Intent(getContext(),article_activity.class);
+        startActivity(i);
 
     }
 
