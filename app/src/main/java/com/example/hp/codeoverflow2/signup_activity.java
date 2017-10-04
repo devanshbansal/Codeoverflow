@@ -17,7 +17,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class signup_activity extends AppCompatActivity {
     Button b1;
-    private EditText eid, password, confpassword, name;
+    private EditText eid, password, confpassword, phone;
     private DatabaseReference mDatabase;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +28,7 @@ public class signup_activity extends AppCompatActivity {
         eid = (EditText)findViewById(R.id.editText);
         password = (EditText)findViewById(R.id.editText2);
         confpassword = (EditText)findViewById(R.id.editText3);
-        name = (EditText)findViewById(R.id.editText4);
+        phone = (EditText)findViewById(R.id.editText4);
         mDatabase = FirebaseDatabase.getInstance().getReference();
         b1= (Button) findViewById(R.id.button);
         b1.setOnClickListener(new View.OnClickListener() {
@@ -56,16 +56,30 @@ public class signup_activity extends AppCompatActivity {
                 break;}
         return true;
     }
+    public boolean phoneCheck(){
+        String s = phone.getText().toString();
+        return (s.length() == 10);
+    }
 
     public void insertData(){
         try{
-            if(!password.getText().toString().equals(confpassword.getText().toString())){
+            if(!phoneCheck()){
+                Toast.makeText(getApplicationContext(), "Enter correct phone number", Toast.LENGTH_LONG).show();
+                return;
+            }
+            String testingVariable =  password.getText().toString();
+            if(testingVariable.length() < 6){
+                Toast.makeText(getApplicationContext(), "Password must be atleast 6 characters long", Toast.LENGTH_LONG).show();
+                return;
+            }
+            if(!testingVariable.equals(confpassword.getText().toString())){
                 Toast.makeText(getApplicationContext(), "Enter same password in confirm password", Toast.LENGTH_LONG).show();
                 return;
             }
 
-            mDatabase.child("users").child(name.getText().toString()).child("eid").setValue(eid.getText().toString());
-            mDatabase.child("users").child(name.getText().toString()).child("passw").setValue(password.getText().toString());
+
+            mDatabase.child("users").child(phone.getText().toString()).child("eid").setValue(eid.getText().toString());
+            mDatabase.child("users").child(phone.getText().toString()).child("passw").setValue(password.getText().toString());
             Toast.makeText(getApplicationContext(), "Account created Successfully !", Toast.LENGTH_SHORT).show();
             finish();
         }catch(Exception e){
